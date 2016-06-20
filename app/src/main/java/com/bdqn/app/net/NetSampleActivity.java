@@ -24,7 +24,6 @@ import java.net.URL;
 public class NetSampleActivity extends AppCompatActivity {
 
     private TextView mTvContent;
-    private WebView mWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +31,6 @@ public class NetSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_net_sample);
 
         mTvContent = (TextView) findViewById(R.id.tvContent);
-        mWebView = (WebView) findViewById(R.id.wvContent);
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.getSettings().setSupportZoom(false);
-        mWebView.getSettings().setBuiltInZoomControls(false);
-        mWebView.getSettings().setDefaultTextEncodingName("utf-8") ;
-        mWebView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        mWebView.getSettings().setDefaultFontSize(18);
 
         new Thread(new Runnable() {
             @Override
@@ -59,8 +51,6 @@ public class NetSampleActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-                    mWebView.loadData(msg.obj.toString(), "text/html; charset=UTF-8", "utf-8");
-//                    mTvContent.setText(Html.fromHtml(msg.obj.toString()));
                     mTvContent.setText(msg.obj.toString());
                     break;
             }
