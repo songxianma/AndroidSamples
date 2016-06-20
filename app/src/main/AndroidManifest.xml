@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.bdqn.app">
+    package="com.bdqn.app">
+
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.READ_PROFILE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -19,40 +27,99 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".listview.ListViewArrayAdapterTestActivity"/>
-        <activity android:name=".listview.ListViewSimpleAdapterTestActivity"/>
-        <activity android:name=".listview.ListViewBaseAdapterTestActivity"/>
-        <activity android:name=".listview.ListViewMultiLayoutTestActivity"/>
-        <activity android:name=".gridview.GridViewArrayAdapterTestActivity"/>
-        <activity android:name=".gridview.GridViewSimpleAdapterTestActivity"/>
-        <activity android:name=".gridview.GridViewBaseAdapterTestActivity"/>
-        <activity android:name=".recyclerview.RecyclerViewSampleActivity"/>
-        <activity android:name=".fragments.FragmentSampleActivity"/>
-        <activity android:name=".fragments.lifecycle.FragmentLifecycleActivity"/>
-        <activity android:name=".fragments.staticuse.FragmentStaticUseActivity"/>
-        <activity android:name=".fragments.dynamic.FragmentDynamicUseActivity">
-        </activity>
-        <activity android:name=".io.IOSampleActivity">
-        </activity>
-        <activity android:name=".io.internal.InternalStorageActivity">
-        </activity>
-        <activity android:name=".io.external.ExternalStorageActivity">
-        </activity>
-        <activity android:name=".io.internal.SharedPreferencesSampleActivity">
-        </activity>
-        <activity android:name=".io.internal.FileOperateActivity">
-        </activity>
-        <activity android:name=".image.ImageOperateActivity">
-        </activity>
-        <activity android:name=".sqlite.SqliteSampleActivity">
-        </activity>
-        <activity android:name=".net.NetSampleActivity">
-        </activity>
+        <activity android:name=".listview.ListViewArrayAdapterTestActivity" />
+        <activity android:name=".listview.ListViewSimpleAdapterTestActivity" />
+        <activity android:name=".listview.ListViewBaseAdapterTestActivity" />
+        <activity android:name=".listview.ListViewMultiLayoutTestActivity" />
+        <activity android:name=".gridview.GridViewArrayAdapterTestActivity" />
+        <activity android:name=".gridview.GridViewSimpleAdapterTestActivity" />
+        <activity android:name=".gridview.GridViewBaseAdapterTestActivity" />
+        <activity android:name=".recyclerview.RecyclerViewSampleActivity" />
+        <activity android:name=".fragments.FragmentSampleActivity" />
+        <activity android:name=".fragments.lifecycle.FragmentLifecycleActivity" />
+        <activity android:name=".fragments.staticuse.FragmentStaticUseActivity" />
+        <activity android:name=".fragments.dynamic.FragmentDynamicUseActivity"></activity>
+        <activity android:name=".io.IOSampleActivity"></activity>
+        <activity android:name=".io.internal.InternalStorageActivity"></activity>
+        <activity android:name=".io.external.ExternalStorageActivity"></activity>
+        <activity android:name=".io.internal.SharedPreferencesSampleActivity"></activity>
+        <activity android:name=".io.internal.FileOperateActivity"></activity>
+        <activity android:name=".image.ImageOperateActivity"></activity>
+        <activity android:name=".sqlite.SqliteSampleActivity"></activity>
+        <activity android:name=".net.NetSampleActivity"></activity>
+        <activity android:name=".broadcastreceiver.BroadcastReceiverSampleActivity"></activity>
+        <receiver
+            android:name=".broadcastreceiver.broadcastreceiver.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.bdqn.sample.send_broadcast" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.orderedbroadcast.OrderedBroadcastReceiver1"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="com.bdqn.sample.send_ordered_broadcast" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.orderedbroadcast.OrderedBroadcastReceiver2"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1001">
+                <action android:name="com.bdqn.sample.send_ordered_broadcast" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.orderedbroadcast.OrderedBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="124">
+                <action android:name="com.bdqn.sample.send_ordered_custom_broadcast" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".broadcastreceiver.finishactivitis.AActivity" />
+        <activity android:name=".broadcastreceiver.finishactivitis.BActivity" />
+        <activity android:name=".broadcastreceiver.sticky.OneActivity" />
+        <activity android:name=".broadcastreceiver.sticky.TwoActivity" />
+
+        <receiver
+            android:name=".broadcastreceiver.systeminfolistener.ListenPowerInfoReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.systeminfolistener.ListenNetInfoReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.systeminfolistener.ListenSMSReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+
+        </receiver>
+
+
     </application>
 
 </manifest>

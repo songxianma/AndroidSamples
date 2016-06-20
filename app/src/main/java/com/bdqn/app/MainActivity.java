@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.bdqn.app.broadcastreceiver.BroadcastReceiverSampleActivity;
 import com.bdqn.app.fragments.FragmentSampleActivity;
 import com.bdqn.app.gridview.GridViewArrayAdapterTestActivity;
 import com.bdqn.app.gridview.GridViewBaseAdapterTestActivity;
@@ -94,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void showNetRequestSample(View view) {
         mIntent.setClass(this, NetSampleActivity.class);
+        startActivity(mIntent);
+    }
+    public void showBroadcastReceiverSample(View view) {
+        mIntent.setClass(this, BroadcastReceiverSampleActivity.class);
         startActivity(mIntent);
     }
 
