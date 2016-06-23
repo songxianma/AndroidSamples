@@ -112,5 +112,12 @@
             android:text="BroadcastReceiver  Sample"
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showServiceSample"
+            android:text="Service  Sample"
+            />
+
     </LinearLayout>
 </ScrollView>

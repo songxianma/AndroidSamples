@@ -18,6 +18,7 @@ import com.bdqn.app.listview.ListViewMultiLayoutTestActivity;
 import com.bdqn.app.listview.ListViewSimpleAdapterTestActivity;
 import com.bdqn.app.net.NetSampleActivity;
 import com.bdqn.app.recyclerview.RecyclerViewSampleActivity;
+import com.bdqn.app.service.ServiceSampleActivity;
 import com.bdqn.app.sqlite.SqliteSampleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -99,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void showBroadcastReceiverSample(View view) {
         mIntent.setClass(this, BroadcastReceiverSampleActivity.class);
+        startActivity(mIntent);
+    }
+    public void showServiceSample(View view) {
+        mIntent.setClass(this, ServiceSampleActivity.class);
         startActivity(mIntent);
     }
 

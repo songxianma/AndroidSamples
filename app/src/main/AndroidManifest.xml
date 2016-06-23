@@ -43,16 +43,17 @@
         <activity android:name=".fragments.FragmentSampleActivity" />
         <activity android:name=".fragments.lifecycle.FragmentLifecycleActivity" />
         <activity android:name=".fragments.staticuse.FragmentStaticUseActivity" />
-        <activity android:name=".fragments.dynamic.FragmentDynamicUseActivity"></activity>
-        <activity android:name=".io.IOSampleActivity"></activity>
-        <activity android:name=".io.internal.InternalStorageActivity"></activity>
-        <activity android:name=".io.external.ExternalStorageActivity"></activity>
-        <activity android:name=".io.internal.SharedPreferencesSampleActivity"></activity>
-        <activity android:name=".io.internal.FileOperateActivity"></activity>
-        <activity android:name=".image.ImageOperateActivity"></activity>
-        <activity android:name=".sqlite.SqliteSampleActivity"></activity>
-        <activity android:name=".net.NetSampleActivity"></activity>
-        <activity android:name=".broadcastreceiver.BroadcastReceiverSampleActivity"></activity>
+        <activity android:name=".fragments.dynamic.FragmentDynamicUseActivity" />
+        <activity android:name=".io.IOSampleActivity" />
+        <activity android:name=".io.internal.InternalStorageActivity" />
+        <activity android:name=".io.external.ExternalStorageActivity" />
+        <activity android:name=".io.internal.SharedPreferencesSampleActivity" />
+        <activity android:name=".io.internal.FileOperateActivity" />
+        <activity android:name=".image.ImageOperateActivity" />
+        <activity android:name=".sqlite.SqliteSampleActivity" />
+        <activity android:name=".net.NetSampleActivity" />
+        <activity android:name=".broadcastreceiver.BroadcastReceiverSampleActivity" />
+
         <receiver
             android:name=".broadcastreceiver.broadcastreceiver.MyReceiver"
             android:enabled="true"
@@ -112,14 +113,17 @@
             android:name=".broadcastreceiver.systeminfolistener.ListenSMSReceiver"
             android:enabled="true"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
-
         </receiver>
 
+        <activity android:name=".service.ServiceSampleActivity" />
 
+        <service
+            android:name=".service.LocalService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
