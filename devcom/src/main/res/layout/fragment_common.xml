@@ -1,0 +1,33 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.bdqn.devcom.fragments.CommonFragment">
+
+
+    <!-- 导航标题栏 -->
+    <com.bdqn.devcom.widget.PagerSlidingTabStrip
+        android:id="@+id/pager_tabstrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:allowWidthFull="true"
+        >
+    </com.bdqn.devcom.widget.PagerSlidingTabStrip>
+
+    <View
+        android:id="@+id/view_pager_line"
+        android:layout_width="match_parent"
+        android:layout_below="@id/pager_tabstrip"
+        android:layout_height="1px"
+        android:background="?attr/lineColor" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_pager_line">
+    </android.support.v4.view.ViewPager>
+
+
+</FrameLayout>
