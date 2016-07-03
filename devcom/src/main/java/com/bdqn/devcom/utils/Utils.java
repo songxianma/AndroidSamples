@@ -20,5 +20,8 @@ public class Utils {
         int h = displayMetrics.heightPixels;
         return new int[]{w, h};
     }
+    public void v(){
+
+    }
 
 }
